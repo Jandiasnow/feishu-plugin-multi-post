@@ -1150,7 +1150,7 @@ function Page() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', minWidth: '700px' }}>
       <input
         type="file"
         ref={fileInputRef}
@@ -1257,17 +1257,17 @@ function Page() {
                               onChange={e => handleApiConfigChange(config.key, 'name', e.target.value)}
                               style={{ width: 200 }}
                             />
-                          </Space>
-                          <Space>
                             {loading && processingKey === config.key && (
-                              <div style={{ minWidth: '200px' }}>
+                            <div style={{ minWidth: '100px' }}>
                                 <Progress 
                                   percent={progress} 
                                   status={progress === 100 ? 'success' : 'active'}
                                   format={percent => `${completed}/${total} (${percent}%)`}
                                 />
                               </div>
-                            )}
+                            )} 
+                          </Space>
+                          <Space>
                             {(config.failures?.length ?? 0) > 0 && (
                               <Button
                                 type="text"
